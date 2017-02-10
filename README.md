@@ -8,7 +8,7 @@ Below are you can find some example ways the image can be used.
 
 ### Bash alias
 You can create a `bash` alias i.e.:
-```
+```shell
 function wp() {
     docker run -it --rm \
         -v $(pwd):/mnt \
@@ -17,19 +17,19 @@ function wp() {
 ```
 
 ### Create a wordpress project
-```
+```shell
 $ mkdir wp-test && cd wp-test
 $ wp core download
 $ wp core config --dbhost=db --dbname=wptest --dbuser=root --dbpass=root
 $ wp core install \
     --url=http://wp-test \
     --title="Awesome website" \
-    --admin_user=admin --admin_password=admin --admin_email admin@admin.com
+    --admin_user=admin --admin_password=admin --admin_email admin@example.com
 ```
 
 ### Database operations
 Import/export database:
-```
+```shell
 $ cd /path/to/wordpress/project
 $ wp db import /mnt/dump.sql
 ```
