@@ -16,6 +16,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 ENV WP_CLI_VERSION 1.1.0
 
 RUN apk add --update --repository http://dl-4.alpinelinux.org/alpine/v3.2/main --repository http://dl-4.alpinelinux.org/alpine/edge/testing \
+      ca-certificates \
       bash \
       curl \
       less \
