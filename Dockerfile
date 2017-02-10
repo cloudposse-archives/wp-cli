@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 
 MAINTAINER Cloud Posse, LLC <hello@cloudposse.com>
 
@@ -12,27 +12,21 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.license="APACHE2"
 
+# https://github.com/wp-cli/wp-cli/releases
 ENV WP_CLI_VERSION 1.1.0
 
-RUN apk add --no-cache --repository "http://dl-cdn.alpinelinux.org/alpine/edge/testing" \
-    bash \
-    curl \
-    less \
-    freetype-dev libjpeg-turbo-dev libpng-dev \
-    mariadb-client \
-    php7-gd \
-    php7-mysqli \
-    php7-mongodb
-
-
-FROM mbodenhamer/alpine:latest
-MAINTAINER Matt Bodenhamer <mbodenhamer@mbodenhamer.com>
-
-RUN apk add --no-cache \
+RUN apk add --update --repository http://dl-4.alpinelinux.org/alpine/v3.2/main --repository http://dl-4.alpinelinux.org/alpine/edge/testing \
+      bash \
       curl \
+      less \
       git \
+      zip \
+      freetype-dev \
+      libjpeg-turbo-dev \
+      libpng-dev \
+      mariadb-client \
       mysql-client \
-      nano \
+      php \
       php-cli \
       php-curl \
       php-dom \
@@ -40,7 +34,8 @@ RUN apk add --no-cache \
       php-mysql \
       php-openssl \
       php-phar \
-      zip && \
+      php-gd \
+      php-mysqli && \
   rm -rf /tmp/src && \
   rm -rf /var/cache/apk/*
 
