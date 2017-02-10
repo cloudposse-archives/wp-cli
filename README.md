@@ -48,3 +48,4 @@ This image is built from bits and pieces of other Dockerfiles.
 Thanks to contributions by the following people:
 - @mbodenhamer, https://github.com/mbodenhamer/docker-alpine-wpcli/
 - @soifou, https://github.com/soifou/wpcli-alpine
+- @xtreamwayz, https://github.com/xtreamwayz/dckr-php

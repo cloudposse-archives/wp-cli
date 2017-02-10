@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 
 MAINTAINER Cloud Posse, LLC <hello@cloudposse.com>
 
@@ -15,7 +15,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # https://github.com/wp-cli/wp-cli/releases
 ENV WP_CLI_VERSION 1.1.0
 
-RUN apk add --update --repository http://dl-4.alpinelinux.org/alpine/v3.2/main --repository http://dl-4.alpinelinux.org/alpine/edge/testing \
+RUN (echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories) && \
+    apk update && \
+    apk upgrade && \
+    apk add \
       ca-certificates \
       bash \
       curl \
@@ -27,16 +30,23 @@ RUN apk add --update --repository http://dl-4.alpinelinux.org/alpine/v3.2/main -
       libpng-dev \
       mariadb-client \
       mysql-client \
-      php \
-      php-cli \
-      php-curl \
-      php-dom \
-      php-json \
-      php-mysql \
-      php-openssl \
-      php-phar \
-      php-gd \
-      php-mysqli && \
+      php7 \
+      php7-curl \
+      php7-dom \
+      php7-json \
+      php7-openssl \
+      php7-iconv \
+      php7-mbstring \
+      php7-phar \
+      php7-zip \
+      php7-zlib \
+      php7-pdo \
+      php7-dom \
+      php7-gd \
+      php7-mysqli && \
+  ln -s /etc/php7 /etc/php && \
+  ln -s /usr/bin/php7 /usr/bin/php && \
+  ln -s /usr/lib/php7 /usr/lib/php && \
   rm -rf /tmp/src && \
   rm -rf /var/cache/apk/*
 
