@@ -4,10 +4,12 @@ WP-CLI built from Composer build on top of Alpine Linux.
 
 ## Usage
 
-Below are you can find some example ways the image can be used.
+Below are some examples of how you can use `wp-cli`.
 
 ### Bash alias
-You can create a `bash` alias i.e.:
+
+Create a `bash` alias i.e.:
+
 ```shell
 function wp() {
     docker run -it --rm \
@@ -16,7 +18,8 @@ function wp() {
 }
 ```
 
-### Create a wordpress project
+### Create a Wordpress project
+
 ```shell
 $ mkdir wp-test && cd wp-test
 $ wp core download
@@ -27,7 +30,8 @@ $ wp core install \
     --admin_user=admin --admin_password=admin --admin_email admin@example.com
 ```
 
-### Database operations
+### Perform Database Operations
+
 Import/export database:
 ```shell
 $ cd /path/to/wordpress/project
