@@ -33,11 +33,14 @@ Import/export database:
 $ cd /path/to/wordpress/project
 $ wp db import /mnt/dump.sql
 ```
-Since the `--path` point inside the container, your dump must be available inside.
+
+NOTE: The `--path` argument is relative to paths inside of the container. Bind mount volumes as necessary.
 
 
 ## Credits
 
-This image is built from bits and pieces of other Dockerfiles. Thanks to contributions by the following people:
+This image is built from bits and pieces of other Dockerfiles. 
+
+Thanks to contributions by the following people:
 - @mbodenhamer, https://github.com/mbodenhamer/docker-alpine-wpcli/
 - @soifou, https://github.com/soifou/wpcli-alpine
