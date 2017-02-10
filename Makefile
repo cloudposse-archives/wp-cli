@@ -9,7 +9,7 @@ export BUILD_HARNESS_PATH ?= $(shell until [ -d "build-harness" ] || [ "`pwd`" =
 
 APP := wp-cli
 COPYRIGHT_SOFTWARE := wp-cli
-COPYRIGHT_SOFTWARE_DESCRIPTION :=  Wordpress command-line client
+COPYRIGHT_SOFTWARE_DESCRIPTION := WP-CLI build with Composer on top of Alpine Linux
 
 .PHONY : init
 ## Init build-harness

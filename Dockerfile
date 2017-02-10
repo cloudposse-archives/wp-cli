@@ -5,7 +5,7 @@ MAINTAINER Cloud Posse, LLC <hello@cloudposse.com>
 ARG BUILD_DATE
 ARG VCS_REF
 LABEL org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.name="WP-CLI baked with Composer on top of Alpine Linux" \
+    org.label-schema.name="WP-CLI build with Composer on top of Alpine Linux" \
     org.label-schema.docker.dockerfile="/Dockerfile" \
     org.label-schema.vcs-url="https://github.com/cloudposse/wp-cli.git" \
     org.label-schema.vcs-type="Git" \
