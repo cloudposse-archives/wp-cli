@@ -13,7 +13,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.license="APACHE2"
 
 # https://github.com/wp-cli/wp-cli/releases
-ENV WP_CLI_VERSION 1.1.0
+ENV WP_CLI_VERSION 2.1.0
 
 RUN (echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories) && \
     apk update && \
