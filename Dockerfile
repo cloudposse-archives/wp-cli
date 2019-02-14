@@ -44,10 +44,6 @@ RUN (echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
       php7-dom \
       php7-gd \
       php7-mysqli && \
-  ln -sf /etc/php7 /etc/php && \
-  ln -sf /usr/bin/php7 /usr/bin/php && \
-  ln -sf /usr/lib/php7 /usr/lib/php && \
-  rm -rf /tmp/src && \
   rm -rf /var/cache/apk/*
 
 ## Install composer
