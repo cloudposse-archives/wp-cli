@@ -13,7 +13,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.license="APACHE2"
 
 # https://github.com/wp-cli/wp-cli/releases
-ENV WP_CLI_VERSION 1.1.0
+ENV WP_CLI_VERSION 2.1.0
 
 RUN (echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories) && \
     apk update && \
@@ -44,10 +44,6 @@ RUN (echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
       php7-dom \
       php7-gd \
       php7-mysqli && \
-  ln -s /etc/php7 /etc/php && \
-  ln -s /usr/bin/php7 /usr/bin/php && \
-  ln -s /usr/lib/php7 /usr/lib/php && \
-  rm -rf /tmp/src && \
   rm -rf /var/cache/apk/*
 
 ## Install composer
@@ -56,9 +52,10 @@ RUN (curl --fail -sS https://getcomposer.org/installer | php) && \
     mv composer.phar /usr/bin/composer && \
     composer -V
 
+## Install wp-cli
 RUN composer create-project wp-cli/wp-cli:$WP_CLI_VERSION /usr/share/wp-cli --no-dev && \
-	ln -s /usr/share/wp-cli/bin/wp /usr/bin/wp && \
-	ln -s /usr/share/wp-cli/bin/wp /usr/bin/wp-cli
-
+    ln -sf /usr/share/wp-cli/bin/wp /usr/bin/wp && \
+    ln -sf /usr/share/wp-cli/bin/wp /usr/bin/wp-cli && \
+    wp cli version
 
 ENTRYPOINT ["/usr/bin/wp", "--allow-root", "--path=/mnt"]
